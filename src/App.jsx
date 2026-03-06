@@ -1,25 +1,25 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-// Layout & UI Components
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
-// Section Components - Paths matched exactly to your sidebar screenshot
+
 import Hero from './components/Hero'
 import IPhoneHero from './components/IPhoneHero'
 import MacLineup from './components/MacLineup'
-import IPhone from './components/iphone' // small 'i' as per sidebar
+import IPhone from './components/Iphone' 
 import IPhoneCards from './components/IphoneCard'
 import AirPodsUnboxing from './components/AirPodsUnboxing'
 import WatchSection from './components/Watch'
-import IPadSection from './components/ipad' // small 'i' as per sidebar
+import IPadSection from './components/ipad' 
 import Cart from './pages/Cart'
 
 const App = () => {
   const [cart, setCart] = useState([]);
 
-  // Navbar ke liye total quantity count
+
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
