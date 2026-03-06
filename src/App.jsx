@@ -1,28 +1,32 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+// Layout & UI Components
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
+// Section Components - Paths matched exactly to your sidebar screenshot
 import Hero from './components/Hero'
 import IPhoneHero from './components/IPhoneHero'
 import MacLineup from './components/MacLineup'
-import IPhone from './components/iphone'
+import IPhone from './components/iphone' // small 'i' as per sidebar
 import IPhoneCards from './components/IphoneCard'
 import AirPodsUnboxing from './components/AirPodsUnboxing'
 import WatchSection from './components/Watch'
-import IPadSection from './components/ipad'
-import Footer from './components/Footer'
+import IPadSection from './components/ipad' // small 'i' as per sidebar
 import Cart from './pages/Cart'
 
 const App = () => {
   const [cart, setCart] = useState([]);
 
-  // Total quantity count for Navbar
+  // Navbar ke liye total quantity count
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={
-          <>
+          <div className="bg-white min-h-screen">
             <Navbar cartCount={totalItems} /> 
             
             <div id="hero"><Hero /></div>
@@ -40,7 +44,6 @@ const App = () => {
               <IPhoneCards cart={cart} setCart={setCart} /> 
             </div>
 
-            {/* FIX: In sab mein props pass karna zaroori hai */}
             <div id="airpods">
               <AirPodsUnboxing cart={cart} setCart={setCart} />
             </div>
@@ -54,9 +57,10 @@ const App = () => {
             </div>
             
             <Footer />
-          </>
+          </div>
         } />
         
+        {/* Cart Page Route */}
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         
       </Routes>
