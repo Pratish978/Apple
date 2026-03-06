@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { ShoppingBag } from 'lucide-react'
 
 // Assets
-import iphone17Pro from '../assets/iphone17Pro.png'
+import iphone17Pro from '../assets/iphone17pro.png'
 import iphoneAir from '../assets/iphoneair.png'
 import iphone17 from '../assets/iphone17.png'
 import iphone17e from '../assets/iphone17e.png'

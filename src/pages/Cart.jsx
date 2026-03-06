@@ -48,7 +48,7 @@ const Cart = ({ cart, setCart }) => {
     let ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-      // Header hamesha hota hai
+
       tl.from(".cart-header h1", { 
           y: 40, 
           opacity: 0, 
