@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-// Assets
 import appleLogo from '../assets/apple.png' 
 import macVideo from '../assets/mac_video.mp4'
 import mac from '../assets/mac.png' 
@@ -21,12 +20,12 @@ const Hero = () => {
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "expo.inOut" } });
 
-    // --- INITIAL STATES ---
+
     gsap.set([heroImageRef.current, videoContainerRef.current], { opacity: 0, scale: 0.9 });
     gsap.set(".mac-fly-text", { opacity: 0, scale: 0, filter: "blur(20px)" });
     gsap.set(iphoneSectionRef.current, { display: 'none', opacity: 0 });
 
-    // 1. Apple Logo Intro (1 sec Hold)
+
     tl.fromTo(introLogoRef.current, 
       { opacity: 0, scale: 0.5, filter: "blur(10px)" },
       { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1, ease: "expo.out" }
@@ -34,7 +33,7 @@ const Hero = () => {
     .to(introLogoRef.current, { scale: 1.1, duration: 1 }) 
     .to(introLogoRef.current, { opacity: 0, scale: 1.5, duration: 0.8 });
 
-    // 2. iPhone 17e Reveal
+
     tl.set(iphoneSectionRef.current, { display: 'flex' })
     .to(iphoneSectionRef.current, { opacity: 1, duration: 0.6 })
     .fromTo([".oneshot-text", ".oneshot-btn"], 
@@ -49,15 +48,14 @@ const Hero = () => {
     )
 
     
-    .to({}, { duration: 0.5 }) // Wait for 0.5s
+    .to({}, { duration: 0.5 })
     .to(iphoneSectionRef.current, { 
-      y: "100%", // Ye ab neeche jayega
+      y: "100%", 
       opacity: 0, 
       duration: 1.2, 
       ease: "power4.inOut" 
     })
     
-    // 4. MacBook Neo Reveal (Peeche se emerge hoga)
     .to([heroImageRef.current, videoContainerRef.current], { 
       opacity: 1, 
       scale: 1, 
@@ -75,7 +73,7 @@ const Hero = () => {
     
     .to(heroImageRef.current, { opacity: 0, duration: 0.8, delay: 0.5 });
 
-    // Mouse Move Parallax
+ 
     const handleMouseMove = (e) => {
       const { clientX, clientY } = e;
       const xPos = (clientX / window.innerWidth - 0.5) * 15;
